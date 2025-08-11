@@ -1,0 +1,38 @@
+version: '3.8'
+services:
+  mysql:
+    image: mysql
+    container_name: mysql-container
+    environment:
+      MYSQL_ROOT_PASSWORD: Aleena@123jm
+      MYSQL_DATABASE: mbblab
+    ports:
+      - "3307:3307"
+    networks:
+      - spring-net
+
+  app1:
+    container_name: app1-container
+    image: app1
+    restart: always
+    ports:
+      - "12001:12001"
+    depends_on:
+      - mysql
+    networks:
+      - spring-net
+
+  app2:
+    container_name: app2-container
+    image: app2
+    restart: always
+    ports:
+      - "12002:12002"
+    depends_on:
+      - mysql
+    networks:
+      - spring-net
+
+networks:
+  spring-net:
+    
