@@ -22,6 +22,7 @@ public class MBBLabController {
 		
 		
 		List<Employee> list =mService.findAllEmployee();
+		System.out.println("Displaying all employees");
 			
 			
 		return list;
